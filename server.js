@@ -53,5 +53,8 @@ app.get('/', (req, res) => {
 app.get('/api/tasks', async (req, res) => res.json(await Task.find()));
 app.post('/api/tasks', async (req, res) => res.json(await new Task(req.body).save()));
 
+// Isse replace karo niche wali 2 lines se
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log('Server is live!'));
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
+});
